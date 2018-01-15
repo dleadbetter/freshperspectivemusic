@@ -18,7 +18,7 @@ app.use(express.static('client'));
 require('./app/routes')(app, {});
 
 // Open the port
-app.listen(8080);
+app.listen(process.env.PORT || 8080);
 
 // Ping the app every 5 minutes to prevent it from going to sleep.
 setInterval(() => {
