@@ -1,0 +1,21 @@
+{
+  "name": "fpweb",
+  "version": "1.0.0",
+  "description": "Fresh Perspective",
+  "main": "index.js",
+  "scripts": {
+    "dev": "NODE_ENV=dev nodemon server.js",
+    "prod": "NODE_ENV=prod node server.js"
+    "start": "npm install && NODE_ENV=prod node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongodb": "^2.2.16"
+  },
+  "devDependencies": {
+    "nodemon": "^1.14.11"
+  }
+}

@@ -1,0 +1,135 @@
+/* Global styles */
+a:hover {
+  color: #d44457;
+}
+
+/* Shared */
+
+.load-more {
+  margin-top: 20px;
+}
+
+.load-more div {
+  background-color: #a2cf8d;
+  color: white;
+  cursor: pointer;
+  margin: 0 auto;
+  padding: 8px;
+  text-align: center;
+  width: 20%;
+}
+
+.load-more div:hover {
+  background-color: #5c9d7d;
+  transition: all 0.5s;
+}
+
+.loading {
+  background: url(../img/loading.gif) no-repeat;
+  height: 50px;
+}
+
+/* News */
+
+.news-table {
+  border-collapse: collapse;
+  display: table;
+  margin: 0 auto;
+  margin-top: 30px;
+  padding: 10px;
+  width: 85%;
+}
+
+.news-row {
+  border-top: thin solid #b1b1b1;
+  border-bottom: thin solid #b1b1b1;
+  display: table-row;
+  padding: 10px;
+}
+
+.news-row div {
+  padding: 5px;
+}
+
+.news-title {
+  font-weight: 600;
+}
+
+/* Tour */
+
+.event-table {
+  border-collapse: collapse;
+  display: table;
+  margin: 0 auto;
+  padding: 10px;
+  width: 85%;
+}
+
+.event-row {
+  border-top: thin solid #b1b1b1;
+  border-bottom: thin solid #b1b1b1;
+  display: table-row;
+}
+
+.event-row div {
+  display: table-cell;
+  padding: 15px;
+}
+
+.rsvp-button {
+  background-color: #a2cf8d;
+  border-radius: 8px;
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+}
+
+.rsvp-button:focus,
+.rsvp-button:hover {
+  background-color: #5c9d7d;
+  color: white;
+  text-decoration: none;
+  transition: all 0.5s;
+}
+
+/* Music */
+
+.music-row {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.music-row div {
+  padding: 10px;
+}
+
+.sound-cloud a {
+  font-size: 16px;
+  width: 75px;
+  height: 75px;
+  line-height: 90px;
+  text-align: center;
+  display: inline-block;
+  background-color: #a2cf8d;
+  color: #202628;
+  border-radius: 50%;
+}
+
+.sound-cloud a:hover {
+  background-color: #5c9d7d;
+  transition: all 0.5s;
+}
+
+/* Videos */
+
+.video-container {
+  margin: 0 auto;
+  margin-top: 20px;
+  width: 75%;
+}
+
+/* Contact */
+
+.email-container {
+  text-align: center;
+}
