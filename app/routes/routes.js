@@ -15,8 +15,6 @@ module.exports = function(app, db) {
    */
   app.get('/api/*', (req, res) => {
 
-    console.log(config.accessToken);
-
     const urlOptions = url.parse(req.url);
     req.pause();
 
