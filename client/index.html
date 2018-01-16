@@ -47,7 +47,7 @@ http://www.tooplate.com/view/2089-meteor
     </head>
 
 <body ng-controller="app-ctrl">
-  <div id="fb-root"></div>
+    <div id="fb-root"></div>
 
     <div class="header">
         <div class="container">
@@ -107,7 +107,9 @@ http://www.tooplate.com/view/2089-meteor
     </section> <!-- .cd-hero -->
 
     <div id="news" class="page-section">
-        <div class="container">
+      <div class="content-wrapper">
+        <div class="inner-container container">
+
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-heading">
@@ -116,23 +118,30 @@ http://www.tooplate.com/view/2089-meteor
                     </div>
                 </div>
             </div>
-            <div class="news-table" ng-cloak>
-              <div class="news-row" ng-repeat="post in posts.data">
-                <div class="news-title">
-                  {{ post.created_at.toDate() | date : "MMMM dd, yyyy" }}
+
+            <div class="row news-container">
+              <div class="col-md-12 news-table" ng-cloak>
+                <div class="news-row" ng-repeat="post in posts.data">
+                  <div class="news-title">
+                    {{ post.created_at.toDate() | date : "MMMM dd, yyyy" }}
+                  </div>
+                  <div ng-bind-html="post.content"></div>
                 </div>
-                <div class="news-content" ng-bind-html="post.content"></div>
               </div>
             </div>
+
             <div class="row load-more" ng-show="posts.paging.cursors.after">
-              <div ng-click="loadPosts()">Load More</div>
+              <div class="col-md-12" ng-click="loadPosts()">More</div>
             </div>
+
+          </div>
         </div>
     </div>
 
     <div id="tour" class="page-section">
         <div class="content-wrapper">
             <div class="inner-container container">
+              
                 <div class="row">
                     <div class="col-md-12">
                         <div class="section-heading">
@@ -141,6 +150,7 @@ http://www.tooplate.com/view/2089-meteor
                         </div>
                     </div>
                 </div>
+
                 <div class="events-holder-3">
                     <div class="filter-categories">
                         <ul class="events-filter">
@@ -152,24 +162,31 @@ http://www.tooplate.com/view/2089-meteor
                             </li>
                         </ul>
                     </div>
-                    <div>
-                      <div class="event-table" ng-cloak>
-                        <div class="event-row" ng-repeat="event in events.data">
-                          <div>{{ event.start_time | date : "MMM dd yyyy" }}</div>
-                          <div>{{ event.place.name }}</div>
-                          <div ng-if="event.place.location">{{ event.place.location.city }}, {{ event.place.location.state }}</div>
-                          <a ng-show="isUpcomingEvents()" href="http://www.facebook.com/events/{{ event.id }}" class="rsvp-button" role="button">
-                            <i class="fa fa-calendar"></i>
-                            RSVP
-                          </a>
-                        </div>
-                      </div>
-                      <img id="mySpinner" src="/my/loading/spinner.gif" ng-show="loading" />
-                    </div>
-                    <div class="row load-more" ng-show="events.paging.cursors.after && events.data.length >= 10">
-                      <div ng-click="loadEvents()">Load More</div>
-                    </div>
                 </div>
+
+                <div class="row">
+                  <div class="col-md-12 event-table" ng-cloak>
+                    <div class="event-row" ng-repeat="event in events.data">
+                      <div>{{ event.start_time | date : "MMM dd yyyy" }}</div>
+                      <div>{{ event.place.name }}</div>
+                      <div ng-if="event.place.location">
+                        {{ event.place.location.city }}, {{ event.place.location.state }}
+                      </div>
+                      <div>
+                        <a ng-show="isUpcomingEvents()"
+                          href="http://www.facebook.com/events/{{ event.id }}"
+                          class="rsvp-button" role="button">
+                         RSVP
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row load-more" ng-show="events.paging.cursors.after && events.data.length >= 10">
+                  <div class="col-md-6" ng-click="loadEvents()">More</div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -186,7 +203,7 @@ http://www.tooplate.com/view/2089-meteor
           </div>
         </div>
         <div class="row music-row">
-          <div class="sound-cloud">
+          <div class="col-md-12 sound-cloud">
             <a href="http://www.soundcloud.com/freshperspective">
               <i class="fa fa-3x fa-soundcloud"></i>
             </a>
@@ -211,7 +228,7 @@ http://www.tooplate.com/view/2089-meteor
         </div>
 
         <div class="row">
-          <div class="container">
+          <div class="col-lg-12">
 
             <div id="videoCarousel"
                  class="carousel slide video-container"
@@ -272,7 +289,7 @@ http://www.tooplate.com/view/2089-meteor
                 </div>
             </div>
             <div class="row">
-              <div class="email-container">
+              <div class="col-lg-12 email-container">
                 <a href="mailto:freshperspectivemusic@yahoo.com">freshperspectivemusic@yahoo.com</a>
               </div>
             </div>
