@@ -14,10 +14,11 @@ a:hover {
   background-color: #a2cf8d;
   color: white;
   cursor: pointer;
+  display: block;
+  float: none;
   margin: 0 auto;
   padding: 8px;
   text-align: center;
-  width: 20%;
 }
 
 .load-more div:hover {
