@@ -27,7 +27,8 @@ angular.module('app').controller('app-ctrl', ($injector, $scope) => {
     $scope.posts = {
       data: [],
       paging: {},
-      loading: false
+      loading: false,
+      limit: 5
     };
 
     // TODO: Cache events to avoid API calls when toggling filters
@@ -35,12 +36,14 @@ angular.module('app').controller('app-ctrl', ($injector, $scope) => {
       data: [],
       paging: {},
       filter: EventFilter.UPCOMING,
-      loading: false
+      loading: false,
+      limit: 10
     };
 
     $scope.videos = {
       data: [],
-      loading: false
+      loading: false,
+      limit: 5
     };
 
     $scope.loadPosts();
@@ -71,7 +74,7 @@ angular.module('app').controller('app-ctrl', ($injector, $scope) => {
     $scope.events.loading = true;
     const params = {
       time_filter: $scope.events.filter,
-      limit: 10,
+      limit: $scope.events.limit,
       after: getPage($scope.events)
     };
 
@@ -97,7 +100,7 @@ angular.module('app').controller('app-ctrl', ($injector, $scope) => {
   $scope.loadPosts = () => {
     $scope.posts.loading = true;
     const params = {
-      limit: 5,
+      limit: $scope.posts.limit,
       after: getPage($scope.posts)
     };
 
@@ -116,9 +119,14 @@ angular.module('app').controller('app-ctrl', ($injector, $scope) => {
    */
   $scope.loadVideos = () => {
     $scope.videos.loading = true;
+    const params = {
+      limit: $scope.videos.limit,
+      after: getPage($scope.videos)
+    };
 
-    videos.fetchAll().then((response) => {
+    videos.fetchAll(params).then((response) => {
       $scope.videos.loading = false;
+      $scope.videos.paging = response.paging;
       $scope.videos.data = [
         ...$scope.videos.data,
         ...response.videos
@@ -137,6 +145,16 @@ angular.module('app').controller('app-ctrl', ($injector, $scope) => {
     $scope.events.data = [];
     $scope.events.paging = {};
     $scope.loadEvents();
+  };
+
+  /**
+   * Returns true if the "More" button should be displayed.
+   */
+  $scope.showMore = (item) => {
+    return item.paging &&
+           item.paging.cursors && 
+           item.paging.cursors.after &&
+           item.data.length >= item.limit;
   };
 
   // Initializes the controller
