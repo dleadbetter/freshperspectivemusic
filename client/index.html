@@ -187,6 +187,11 @@ http://www.tooplate.com/view/2089-meteor
                   <div class="col-md-6" ng-click="loadEvents()">More</div>
                 </div>
 
+                <div class="row empty-row" ng-show="events.data.length === 0">
+                  <div class="col-md-6" ng-show="isUpcomingEvents()">No upcoming dates</div>
+                  <div class="col-md-6" ng-show="isPastEvents()">No past dates</div>
+                </div>
+
             </div>
         </div>
     </div>

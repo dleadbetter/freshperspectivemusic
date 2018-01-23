@@ -6,6 +6,14 @@ a:hover {
 
 /* Shared */
 
+.empty-row div {
+  display: block;
+  float: none;
+  margin: 0 auto;
+  padding: 8px;
+  text-align: center;
+}
+
 .load-more {
   margin-top: 20px;
 }
